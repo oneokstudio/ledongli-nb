@@ -1,0 +1,44 @@
+{"frames": {
+
+"logo.png":
+{
+	"frame": {"x":646,"y":30,"w":234,"h":66},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":234,"h":66},
+	"sourceSize": {"w":234,"h":66}
+},
+"success-btn-game.png":
+{
+	"frame": {"x":2,"y":178,"w":426,"h":111},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":426,"h":111},
+	"sourceSize": {"w":426,"h":111}
+},
+"success-copy.png":
+{
+	"frame": {"x":2,"y":2,"w":642,"h":174},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":642,"h":174},
+	"sourceSize": {"w":642,"h":174}
+},
+"title-light2.png":
+{
+	"frame": {"x":646,"y":2,"w":307,"h":26},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":307,"h":26},
+	"sourceSize": {"w":307,"h":26}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "friend.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1b183d1686cacdc18bc1261ff1ef4131:1/1$"
+}
+}

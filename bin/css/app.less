@@ -1,0 +1,66 @@
+@import "lib.less";
+
+@font-face {
+    font-family: 'numfont';
+    src: url('fonts/num.eot');
+    src: url('fonts/num.eot?#iefix') format('embedded-opentype'),
+         url('fonts/num.woff') format('woff'),
+         url('fonts/num.ttf') format('truetype'),
+         url('fonts/num.svg#numfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+  margin: 0; padding: 0;
+  width: 100%; height: 100%;
+  background-color: black;
+  position:relative;
+}
+
+img{
+  zoom: 50%;
+}
+
+#loader {
+  width:200px;
+  height:80px;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  z-index: 9;
+}
+
+#percent {
+ font-family: 'numfont';
+ width: 18px;
+ height: 18px;
+ margin: auto;
+ position: absolute;
+ top: 50px;
+ left: 80px;
+ bottom: 0;
+ right: 0;
+ color: #f50f15;
+ font-size: 14px;
+ font-style: italic;
+}
+
+.r90{
+	transform: rotate(90deg);
+}
+
+#game {
+  display: none; position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+#debug {
+  position:fixed;
+  top:0;
+  height:40px;
+  left:0;
+  right:0;
+  background-color: black;
+  color:white;
+}

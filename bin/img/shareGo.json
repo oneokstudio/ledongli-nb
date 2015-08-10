@@ -1,0 +1,108 @@
+{"frames": {
+
+"Go0.png":
+{
+	"frame": {"x":2,"y":1553,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go1.png":
+{
+	"frame": {"x":2,"y":1412,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go10.png":
+{
+	"frame": {"x":2,"y":1271,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go11.png":
+{
+	"frame": {"x":2,"y":1130,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go2.png":
+{
+	"frame": {"x":2,"y":989,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go3.png":
+{
+	"frame": {"x":2,"y":848,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go4.png":
+{
+	"frame": {"x":2,"y":707,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go5.png":
+{
+	"frame": {"x":2,"y":566,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go6.png":
+{
+	"frame": {"x":2,"y":425,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go7.png":
+{
+	"frame": {"x":2,"y":284,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go8.png":
+{
+	"frame": {"x":2,"y":143,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+},
+"Go9.png":
+{
+	"frame": {"x":2,"y":2,"w":668,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":668,"h":139},
+	"sourceSize": {"w":668,"h":139}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "shareGo.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":2048},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a86b9cc82a2431e1ec035ac7085bdbfb:1/1$"
+}
+}

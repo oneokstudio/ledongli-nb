@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProjectGuid>{B01F6FC3-1BCE-415D-A6C5-46A9E8B3DA0B}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <OutputPath>bin</OutputPath>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <TypeScriptToolsVersion>1.4</TypeScriptToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="lib\createjs-lib.d.ts" />
+    <TypeScriptCompile Include="lib\greensock.d.ts" />
+    <TypeScriptCompile Include="lib\jquery.d.ts" />
+    <TypeScriptCompile Include="lib\MediaStream.d.ts" />
+    <TypeScriptCompile Include="lib\pixi.d.ts" />
+    <TypeScriptCompile Include="lib\preloadjs.d.ts" />
+    <TypeScriptCompile Include="lib\soundjs.d.ts" />
+    <TypeScriptCompile Include="lib\waa.d.ts" />
+    <TypeScriptCompile Include="ts\App.ts" />
+    <TypeScriptCompile Include="ts\Interface.ts" />
+    <TypeScriptCompile Include="ts\LiteEvent.ts" />
+    <TypeScriptCompile Include="ts\vazee\control\BtnLeft.ts" />
+    <TypeScriptCompile Include="ts\vazee\control\BtnRight.ts" />
+    <TypeScriptCompile Include="ts\vazee\control\Control.ts" />
+    <TypeScriptCompile Include="ts\vazee\control\FingerLeft.ts" />
+    <TypeScriptCompile Include="ts\vazee\control\FingerRight.ts" />
+    <TypeScriptCompile Include="ts\vazee\control\Music.ts" />
+    <TypeScriptCompile Include="ts\vazee\Counter.ts" />
+    <TypeScriptCompile Include="ts\vazee\fail\BtnBack.ts" />
+    <TypeScriptCompile Include="ts\vazee\fail\BtnRestart.ts" />
+    <TypeScriptCompile Include="ts\vazee\fail\Copy.ts" />
+    <TypeScriptCompile Include="ts\vazee\fail\Fail.ts" />
+    <TypeScriptCompile Include="ts\vazee\fail\Light.ts" />
+    <TypeScriptCompile Include="ts\vazee\Finished.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Bg.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\BtnGame.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Content.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Copy.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Friend.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Ending.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Light.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Name.ts" />
+    <TypeScriptCompile Include="ts\vazee\friend\Score.ts" />
+    <TypeScriptCompile Include="ts\vazee\Game.ts" />
+    <TypeScriptCompile Include="ts\vazee\Hero.ts" />
+    <TypeScriptCompile Include="ts\vazee\Animal.ts" />
+    <TypeScriptCompile Include="ts\vazee\LevelNum.ts" />
+    <TypeScriptCompile Include="ts\vazee\level\Go.ts" />
+    <TypeScriptCompile Include="ts\vazee\level\Level.ts" />
+    <TypeScriptCompile Include="ts\vazee\level\LevelNum.ts" />
+    <TypeScriptCompile Include="ts\Sfx.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Shoe.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Bg.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Content.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Copy.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Go.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Ready.ts" />
+    <TypeScriptCompile Include="ts\vazee\share\Share.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\BtnNext.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\BtnShare.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Copy.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Light.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Loader.ts" />
+    <TypeScriptCompile Include="ts\vazee\level\Ready.ts" />
+    <TypeScriptCompile Include="ts\vazee\Logo.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Bg.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Content.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Ending.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Score.ts" />
+    <TypeScriptCompile Include="ts\vazee\success\Success.ts" />
+    <TypeScriptCompile Include="ts\vazee\title\Light1.ts" />
+    <TypeScriptCompile Include="ts\vazee\title\Light2.ts" />
+    <TypeScriptCompile Include="ts\vazee\title\TitleText.ts" />
+    <TypeScriptCompile Include="ts\vazee\title\Title.ts" />
+    <TypeScriptCompile Include="ts\vazee\title\TitleStart.ts" />
+    <TypeScriptCompile Include="ts\vazee\title\TitleSub.ts" />
+    <TypeScriptCompile Include="ts\vazee\Track.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>vazee</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\WebApplications\Microsoft.WebApplication.targets')" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49202</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:49202/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptOutFile>bin/app.js</TypeScriptOutFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+</Project>
