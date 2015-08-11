@@ -147,6 +147,7 @@ var App = (function () {
         }
         App.State = 3 /* STATE_GAMING */;
         App.EventState.trigger(3 /* STATE_GAMING */);
+        App.Stage.addChild(vazee.GamingBg.Instance);
     };
     App.FnGameOver = function (aSuccess) {
         if (App.State === 4 /* STATE_GAMEOVER */) {
@@ -155,6 +156,7 @@ var App = (function () {
         App.Success = aSuccess;
         App.State = 4 /* STATE_GAMEOVER */;
         App.EventState.trigger(4 /* STATE_GAMEOVER */);
+        App.Stage.removeChild(vazee.GamingBg.Instance);
     };
     App.FnLoop = function () {
         window.requestAnimFrame(App.FnLoop);
@@ -2710,5 +2712,32 @@ var vazee;
         return Track;
     })(PIXI.Sprite);
     vazee.Track = Track;
+})(vazee || (vazee = {}));
+
+//游戏运行时背景
+var vazee;
+(function (vazee) {
+    "use strict";
+    var GamingBg = (function (_super) {
+        __extends(GamingBg, _super);
+        function GamingBg() {
+            var _this = this;
+            _super.call(this, PIXI.Texture.fromFrame("ready.png"));
+            this.position.set(350, 200);
+            this.visible = true;
+        }
+        Object.defineProperty(GamingBg, "Instance", {
+            get: function () {
+                if (!GamingBg._Instance) {
+                    GamingBg._Instance = new GamingBg();
+                }
+                return GamingBg._Instance;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return GamingBg;
+    })(PIXI.Sprite);
+    vazee.GamingBg = GamingBg;
 })(vazee || (vazee = {}));
 //# sourceMappingURL=app.js.map
