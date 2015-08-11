@@ -45,22 +45,18 @@ $signPackage = $jssdk->GetSignPackage();
 	</div>
 	<canvas id="game"></canvas>
 
-	<div class="modal-bg"></div>
 	<!--	抽奖成功-->
-	<div class="modal">
-		<div class="btn-close"></div>
-		<h2 class="title">恭喜你！</h2>
-		<p class="tip">赢得 New Balance Vazee 跑鞋一双，请留下您的联系方式，我们会有专人尽快与您联系</p>
-		<form>
-			<div class="form-group">
-				<input id="name" type="text" placeholder="请输入姓名"/>
-			</div>
-			<div class="form-group last">
-				<input id="mobile" type="text" placeholder="请输入手机"/>
-			</div>
+	<div class="full-screen fs-success">
+		<div class="shoe-info">
+			<div class="left-part"></div>
+			<div class="right-part"></div>
+		</div>
+		<form class="user-info">
+			<p class="tip">请留下您的联系方式，我们会有专人尽快与您联系</p>
+            <input id="name" type="text" placeholder="姓名"/>
+            <input id="mobile" type="text" placeholder="电话"/>
 
 			<div class="btn btn-submit">提交</div>
-			<div class="btn btn-back" style="margin-top: 20px;">返回</div>
 		</form>
 	</div>
 	<!--	抽奖失败-->

@@ -5,11 +5,39 @@
  * 2. Prevent iOS and IE text size adjust after device orientation change,
  *    without disabling user zoom.
  */
-
 html {
-  font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+body {
+  vertical-align: baseline;
+  font-size: 16px;
+  font-size: 1.6rem;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: #333333;
+  background: #FFFFFF;
+  font-family: "Open Sans","Hiragino Sans GB","Microsoft YaHei","微软雅黑","STHeiti","WenQuanYi Micro Hei","Dengxian",Arial,SimSun,sans-serif;
+}
+@media all and (max-width: 320px){
+  html {
+    font-size: 62.5%;
+  }
+}
+@media all and (min-width: 321px){
+  html {
+    font-size: 70.3%;
+  }
 }
 
 /**
@@ -492,92 +520,89 @@ img {
 
 
 /*弹窗*/
-.modal-bg {
+.full-screen {
   position: fixed;
-  display: none;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 111111;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 1);
   background: #333333\9;
 }
-
-.modal {
-  position: fixed;
+.fs-success {
   display: none;
-  top: 25%;
-  left: 25%;
-  z-index: 111111;
-  width: 50%;
-  height: 50%;
-  background-color: #ffffff;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-  -webkit-background-clip: padding-box;
-  -moz-background-clip: padding-box;
-  background-clip: padding-box;
-  overflow: hidden;
 }
-.modal .btn-close {
-  display: none;
-  position: absolute;
-  right: 13px;
-  width: 14px;
-  height: 14px;
-  margin-top: 8px;
-  text-indent: -9999px;
-  cursor: pointer;
-  background: url(img/btn_close.png) no-repeat;
-  display: inline-block;
-  vertical-align: middle;
-}
-.modal .title {text-align: center;}
-.modal .tip {text-align: center;}
-
-form {
-  margin: 0 auto;
+.shoe-info {
   width: 100%;
+  position: relative;
+  height: 70%;
 }
-.form-group {
-  border-top: solid 1px #cfcfcf;
-  color: #633736;
-  font-size: 18px;
-  padding: 8px 10px;
-  box-sizing: border-box;
-  overflow: hidden;
-  padding-left: 10%;
+.shoe-info .left-part{
+  width: 40%;
+  height: 80%;
+  background: #ffffff;
+  background-size: 100% 100%;
+  margin-left: 10%;
+  position: absolute;
+  top: 20%;
 }
-.form-group.last {
-  border-bottom: solid 1px #cfcfcf;
-
+.shoe-info .right-part{
+  width: 40%;
+  height: 80%;
+  background: #ffffff;
+  background-size: 100% 100%;
+  margin-left: 55%;
+  position: absolute;
+  top: 20%;
 }
-.form-group input {
+.user-info {
+  position: relative;
+  padding: 0 10%;
+}
+.user-info .tip {
+  color: #fff;
+  font-size: 2rem;
+  text-align: left;
+}
+.user-info input {
   display: block;
   float: left;
-  width: 90%;
-  padding: 5px;
-  line-height: 27px;
+  padding: 1rem 0.5rem;
   background: transparent;
-  border: none;
   margin-top: 2px;
   overflow: hidden;
+  border: 2px solid #aeaeae;
+  width: 30%;
+  margin-right: 5%;
+  font-size: 1.8rem;
+  color: #22b1ff;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: #22b1ff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #22b1ff;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #22b1ff;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #22b1ff;
 }
 
 .btn {
   display: block;
   margin: 0px auto;
-  margin-top: 30px;
-  width: 50%;
+  /* margin-top: 30px; */
+  width: 20%;
   padding: 15px 0;
   text-align: center;
   cursor: pointer;
-  background: #000000;
+  background: #8C3232;
   background-size: 100% 100%;
   color: #ffffff;
+  float: left;
 }

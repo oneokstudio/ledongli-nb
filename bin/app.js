@@ -157,6 +157,8 @@ var App = (function () {
         App.State = 4 /* STATE_GAMEOVER */;
         App.EventState.trigger(4 /* STATE_GAMEOVER */);
         App.Stage.removeChild(vazee.GamingBg.Instance);
+        App.Stage.addChild(vazee.BtnBuy.Instance);
+        App.Stage.addChild(vazee.BtnShare.Instance);
     };
     App.FnLoop = function () {
         window.requestAnimFrame(App.FnLoop);
@@ -2079,8 +2081,7 @@ var vazee;
             BtnNext.prototype.fnTap = function () {
                 _hmt.push(["_trackEvent", "button", "click", "NextLevel"]);
 
-                $('.modal-bg').show();
-                $('.modal').show();
+                $('.fs-success').show();
 
                 //var _music = (vazee.control.Music.Instance.musicOn) ? "on" : "off";
                 //window.location.href = appurl + "?level=" + (curLevel + 1) + "&music=" + _music + "&prevscore=" + vazee.Counter.Instance.num + "&name=" + encodeURIComponent(username);
@@ -2739,5 +2740,59 @@ var vazee;
         return GamingBg;
     })(PIXI.Sprite);
     vazee.GamingBg = GamingBg;
+})(vazee || (vazee = {}));
+
+//购买按钮
+var vazee;
+(function (vazee) {
+    "use strict";
+    var BtnBuy = (function (_super) {
+        __extends(BtnBuy, _super);
+        function BtnBuy() {
+            var _this = this;
+            _super.call(this, PIXI.Texture.fromFrame("MUSIC_ON.png"));
+            this.position.set(600, 600);
+            this.visible = true;
+        }
+        Object.defineProperty(BtnBuy, "Instance", {
+            get: function () {
+                if (!BtnBuy._Instance) {
+                    BtnBuy._Instance = new BtnBuy();
+                }
+                return BtnBuy._Instance;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return BtnBuy;
+    })(PIXI.Sprite);
+    vazee.BtnBuy = BtnBuy;
+})(vazee || (vazee = {}));
+
+//分享按钮
+var vazee;
+(function (vazee) {
+    "use strict";
+    var BtnShare = (function (_super) {
+        __extends(BtnShare, _super);
+        function BtnShare() {
+            var _this = this;
+            _super.call(this, PIXI.Texture.fromFrame("MUSIC_ON.png"));
+            this.position.set(700, 600);
+            this.visible = true;
+        }
+        Object.defineProperty(BtnShare, "Instance", {
+            get: function () {
+                if (!BtnShare._Instance) {
+                    BtnShare._Instance = new BtnShare();
+                }
+                return BtnShare._Instance;
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return BtnShare;
+    })(PIXI.Sprite);
+    vazee.BtnShare = BtnShare;
 })(vazee || (vazee = {}));
 //# sourceMappingURL=app.js.map
