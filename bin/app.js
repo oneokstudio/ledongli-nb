@@ -68,7 +68,11 @@ var App = (function () {
             "img/share-back.jpg",
             "img/share-back-landscape.jpg",
             "img/home-title.png",
+            "img/record.png",
             "img/gaming.jpg",
+            "img/btn-buy.png",
+            "img/btn-share.png",
+            "img/shoe.png"
         ];
         //if (_animalLength[curLevel - 1] === 1) {
         //    _list.push("img/L" + curLevel + ".json");
@@ -161,6 +165,7 @@ var App = (function () {
         App.Stage.removeChild(vazee.GamingBg.Instance);
         App.Stage.addChild(vazee.BtnBuy.Instance);
         App.Stage.addChild(vazee.BtnShare.Instance);
+        App.Stage.addChild(vazee.Shoe.Instance);
     };
     App.FnLoop = function () {
         window.requestAnimFrame(App.FnLoop);
@@ -2052,6 +2057,34 @@ var vazee;
         success.Bg = Bg;
     })(success = vazee.success || (vazee.success = {}));
 })(vazee || (vazee = {}));
+//击败多少人
+var vazee;
+(function (vazee) {
+  "use strict";
+  var success;
+  (function (success) {
+    "use strict";
+    var TitleDefeat = (function (_super) {
+      __extends(TitleDefeat, _super);
+      function TitleDefeat() {
+        _super.call(this, PIXI.Texture.fromFrame("img/record.png"));
+        this.position.set(0, 220);
+      }
+      Object.defineProperty(TitleDefeat, "Instance", {
+        get: function () {
+          if (!TitleDefeat._Instance) {
+            TitleDefeat._Instance = new TitleDefeat();
+          }
+          return TitleDefeat._Instance;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      return TitleDefeat;
+    })(PIXI.Sprite);
+    success.TitleDefeat = TitleDefeat;
+  })(success = vazee.success || (vazee.success = {}));
+})(vazee || (vazee = {}));
 var vazee;
 (function (vazee) {
     var success;
@@ -2089,13 +2122,12 @@ var vazee;
                     data:{},
                     url: "lottery.php",
                     success: function(res){
-                        if(res.code == 1){
+                        if(res.code != 1){
                             // 成功
                             //alert(res.msg);
                             $('.fs-success').show();
                         } else {
                             // 失败
-                            alert(res.msg);
                             $('.fs-fail').show();
                         }
                     },
@@ -2140,8 +2172,7 @@ var vazee;
                 }
             };
             BtnShare.prototype.fnTap = function () {
-                vazee.share.Share.Instance.fnShow();
-                _hmt.push(["_trackEvent", "button", "click", "Share"]);
+                location.href = 'http://www.baidu.com';
             };
             return BtnShare;
         })(PIXI.Sprite);
@@ -2160,6 +2191,7 @@ var vazee;
                 _super.call(this);
                 this.addChild(success.Copy.Instance);
                 this.addChild(success.Score.Instance);
+                this.addChild(success.TitleDefeat.Instance);
                 this.addChild(success.BtnNext.Instance);
                 this.addChild(success.BtnShare.Instance);
                 this.rotation = -11.4 * Math.PI / 180;
@@ -2382,7 +2414,7 @@ var vazee;
                 this.y = 640;
                 this.addChild(success.Bg.Instance);
                 this.addChild(success.Content.Instance);
-                this.addChild(success.Loader.Instance);
+                //this.addChild(success.Loader.Instance);
                 this.fnLoadAnim();
             }
             Object.defineProperty(Success, "Instance", {
@@ -2773,8 +2805,8 @@ var vazee;
         __extends(BtnBuy, _super);
         function BtnBuy() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("MUSIC_ON.png"));
-            this.position.set(600, 600);
+            _super.call(this, PIXI.Texture.fromFrame("img/btn-buy.png"));
+            this.position.set(500, 530);
             this.visible = true;
         }
         Object.defineProperty(BtnBuy, "Instance", {
@@ -2800,8 +2832,8 @@ var vazee;
         __extends(BtnShare, _super);
         function BtnShare() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("MUSIC_ON.png"));
-            this.position.set(700, 600);
+            _super.call(this, PIXI.Texture.fromFrame("img/btn-share.png"));
+            this.position.set(900, 530);
             this.visible = true;
         }
         Object.defineProperty(BtnShare, "Instance", {
@@ -2814,8 +2846,50 @@ var vazee;
             enumerable: true,
             configurable: true
         });
+        BtnShare.prototype.fnActive = function () {
+          if (!this.interactive) {
+            this.buttonMode = this.interactive = true;
+            this.on("click", this.fnTap).on("tap", this.fnTap);
+          }
+        };
+        BtnShare.prototype.fnTap = function () {
+          setShare({
+            'image_url':'',
+            'link_url':'http://www.baidu.com',
+            'title':'乐动力NB',
+            'content':'乐动力NBBB',
+            'shared_to':'0'
+          });
+        };
         return BtnShare;
     })(PIXI.Sprite);
     vazee.BtnShare = BtnShare;
+})(vazee || (vazee = {}));
+
+//鞋子
+var vazee;
+(function (vazee) {
+  "use strict";
+  var Shoe = (function (_super) {
+    __extends(Shoe, _super);
+    function Shoe() {
+      var _this = this;
+      _super.call(this, PIXI.Texture.fromFrame("img/shoe.png"));
+      this.position.set(30, 30);
+      this.visible = true;
+    }
+    Object.defineProperty(Shoe, "Instance", {
+      get: function () {
+        if (!Shoe._Instance) {
+          Shoe._Instance = new Shoe();
+        }
+        return Shoe._Instance;
+      },
+      enumerable: true,
+      configurable: true
+    });
+    return Shoe;
+  })(PIXI.Sprite);
+  vazee.Shoe = Shoe;
 })(vazee || (vazee = {}));
 //# sourceMappingURL=app.js.map

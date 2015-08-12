@@ -56,16 +56,18 @@ $signPackage = $jssdk->GetSignPackage();
             <input id="name" type="text" placeholder="姓名"/>
             <input id="mobile" type="text" placeholder="电话"/>
 
-			<div class="btn btn-submit">提交</div>
+			<div class="btn btn-submit"></div>
 		</form>
 	</div>
 	<!--	抽奖失败-->
     <div class="full-screen fs-fail">
         <div class="shoe-info">
             <div class="left-part"></div>
-            <div class="right-part"></div>
+            <div class="right-part">
+                <div class="fail-right"></div>
+                <div class="btn-replay"></div>
+            </div>
         </div>
-        <div class="btn btn-restart"></div>
     </div>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
@@ -115,16 +117,19 @@ $signPackage = $jssdk->GetSignPackage();
 					  } else {
 						  alert(res.msg);
 					  }
+                      $(".fs-success").hide();
+                      $("#game").show();
+                      App.FnGameInit();
 				  },
 				  error: function (res) {
 				  }
 			  });
 		  }
 	  });
-	  $('.btn-back').click(function () {
-		  $('.modal-bg').hide();
-		  $('.modal').hide();
+	  $('.btn-replay').click(function () {
+		  location.reload();
 	  });
+
 
 	  function checkNumber(s)
 	  {
@@ -136,6 +141,26 @@ $signPackage = $jssdk->GetSignPackage();
 		  }
 		  return false;
 	  }
+
+      //分享
+      function connectWebViewJavascriptBridge (callback) {
+          if (window.WebViewJavascriptBridge) {
+              callback(WebViewJavascriptBridge)
+          } else {
+              document.addEventListener('WebViewJavascriptBridgeReady', function() {
+                  callback(WebViewJavascriptBridge)
+              }, false)
+          }
+      }
+      function setShare (conf) {
+          if (android) {
+              return window.web && web.setWebViewShare(conf);
+          } else if (ios) {
+              connectWebViewJavascriptBridge(function (bridge) {
+                  bridge.callHandler('setWebViewShare', conf, function() {});
+              });
+          }
+      }
 	</script>
 </body>
 </html>

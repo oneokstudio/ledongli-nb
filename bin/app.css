@@ -527,8 +527,8 @@ img {
   bottom: 0;
   left: 0;
   z-index: 111111;
-  background: rgba(0, 0, 0, 1);
-  background: #333333\9;
+  background: url('img/luck-bg.jpg');
+  background-size: cover;
 }
 .fs-success {
   display: none;
@@ -536,32 +536,49 @@ img {
 .fs-fail {
   display: none;
 }
+.fs-success .right-part{
+  background: url("img/success-right.png");
+}
+.fs-fail .fail-right{
+  background: url("img/fail-bg.png");
+  background-size: 100% 100%;
+  width: 100%;
+  height: 65%;
+}
+.fs-fail .btn-replay{
+  background: url("img/btn-replay.png");
+  background-size: 100% 100%;
+  width: 35%;
+  height: 20%;
+  margin: 0 auto;
+}
+
 .shoe-info {
   width: 100%;
   position: relative;
   height: 70%;
 }
 .shoe-info .left-part{
-  width: 40%;
-  height: 80%;
-  background: #ffffff;
+  width: 30%;
+  height: 90%;
+  background: url("img/shoe.png");
   background-size: 100% 100%;
   margin-left: 10%;
   position: absolute;
   top: 20%;
 }
 .shoe-info .right-part{
-  width: 40%;
+  width: 50%;
   height: 80%;
-  background: #ffffff;
   background-size: 100% 100%;
-  margin-left: 55%;
+  margin-left: 45%;
   position: absolute;
   top: 20%;
 }
 .user-info {
   position: relative;
   padding: 0 10%;
+  overflow: hidden;
 }
 .user-info .tip {
   color: #fff;
@@ -599,13 +616,14 @@ img {
 .btn {
   display: block;
   margin: 0px auto;
-  /* margin-top: 30px; */
-  width: 20%;
-  padding: 15px 0;
-  text-align: center;
   cursor: pointer;
-  background: #8C3232;
-  background-size: 100% 100%;
   color: #ffffff;
   float: left;
+  width: 20%;
+  padding-top: 8%;
+  margin-top: -1.5%;
+}
+.btn-submit {
+  background: url("img/btn-submit.png");
+  background-size: 100% 100%;
 }

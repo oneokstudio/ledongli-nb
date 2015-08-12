@@ -426,11 +426,11 @@
 },
 "success-copy.png":
 {
-	"frame": {"x":719,"y":134,"w":437,"h":206},
+	"frame": {"x":780,"y":134,"w":370,"h":206},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":437,"h":206},
-	"sourceSize": {"w":437,"h":206}
+	"spriteSourceSize": {"x":0,"y":0,"w":370,"h":206},
+	"sourceSize": {"w":370,"h":206}
 },
 "success-loader.png":
 {
