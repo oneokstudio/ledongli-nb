@@ -99,11 +99,14 @@ $signPackage = $jssdk->GetSignPackage();
 				  dataType: "json",
 				  data:{
 					  'name': name,
-					  'mobile': mobile
+					  'phone': mobile
 				  },
-				  url: Server.attend,
+				  url: 'user_info.php',
 				  success: function(res){
-					  if(res.code == 200){
+					  if(res.code == 1){
+						  alert(res.msg);
+					  } else {
+						  alert(res.msg);
 					  }
 				  },
 				  error: function (res) {

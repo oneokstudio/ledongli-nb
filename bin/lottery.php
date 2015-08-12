@@ -26,15 +26,15 @@ try {
 
 if ($num > MAX_NUM) {
     setcookie('can_get', 0);
-    echo json_encode(['code' => '0']);
+    echo json_encode(['code' => '0', 'msg' => '名额已满']);
 } else {
     $rand = rand(1, 10000);
     if ($rand <= RATE) {
         setcookie('can_get', 1);
-        echo json_encode(['code' => '1']);
+        echo json_encode(['code' => '1', 'msg' => '抽中了']);
     } else {
         setcookie('can_get', 0);
-        echo json_encode(['code' => '0']);
+        echo json_encode(['code' => '0', 'msg' => '没抽中']);
     }
 }
 

@@ -2081,6 +2081,24 @@ var vazee;
             BtnNext.prototype.fnTap = function () {
                 _hmt.push(["_trackEvent", "button", "click", "NextLevel"]);
 
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    data:{},
+                    url: "lottery.php",
+                    success: function(res){
+                        if(res.code == 1){
+                            // 成功
+                            alert(res.msg);
+                        } else {
+                            // 失败
+                            alert(res.msg);
+                        }
+                    },
+                    error: function (res) {
+                    }
+                });
+
                 $('.fs-success').show();
 
                 //var _music = (vazee.control.Music.Instance.musicOn) ? "on" : "off";
