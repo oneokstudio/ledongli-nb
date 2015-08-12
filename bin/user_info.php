@@ -5,9 +5,6 @@
  * Date: 15/8/12
  * Time: 上午10:41
  */
-setcookie('can_get', 1);
-$_REQUEST['phone'] = '18680223034';
-$_REQUEST['name'] = 'meepo';
 
 if ($_COOKIE['can_get']) {
     if (isset($_REQUEST['phone']) && isset($_REQUEST['name'])) {
