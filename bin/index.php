@@ -60,6 +60,13 @@ $signPackage = $jssdk->GetSignPackage();
 		</form>
 	</div>
 	<!--	抽奖失败-->
+    <div class="full-screen fs-fail">
+        <div class="shoe-info">
+            <div class="left-part"></div>
+            <div class="right-part"></div>
+        </div>
+        <div class="btn btn-restart"></div>
+    </div>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
     <script>
         wx.config({

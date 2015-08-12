@@ -533,6 +533,9 @@ img {
 .fs-success {
   display: none;
 }
+.fs-fail {
+  display: none;
+}
 .shoe-info {
   width: 100%;
   position: relative;

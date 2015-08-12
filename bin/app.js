@@ -66,7 +66,9 @@ var App = (function () {
             "img/font-export.xml",
             "img/shareGo.json",
             "img/share-back.jpg",
-            "img/share-back-landscape.jpg"
+            "img/share-back-landscape.jpg",
+            "img/home-title.png",
+            "img/gaming.jpg",
         ];
         //if (_animalLength[curLevel - 1] === 1) {
         //    _list.push("img/L" + curLevel + ".json");
@@ -1519,7 +1521,7 @@ var vazee;
         //Hero.MaxSpeed = .9;
 
         Hero.MinSpeed = 3.8;
-        Hero.MaxSpeed = 1.9;
+        //Hero.MaxSpeed = 1.9;
 
         return Hero;
     })(PIXI.extras.MovieClip);
@@ -2079,7 +2081,7 @@ var vazee;
                 }
             };
             BtnNext.prototype.fnTap = function () {
-                _hmt.push(["_trackEvent", "button", "click", "NextLevel"]);
+              _hmt.push(["_trackEvent", "button", "click", "NextLevel"]);
 
                 $.ajax({
                     type: "post",
@@ -2089,17 +2091,17 @@ var vazee;
                     success: function(res){
                         if(res.code == 1){
                             // 成功
-                            alert(res.msg);
+                            //alert(res.msg);
+                            $('.fs-success').show();
                         } else {
                             // 失败
                             alert(res.msg);
+                            $('.fs-fail').show();
                         }
                     },
                     error: function (res) {
                     }
                 });
-
-                $('.fs-success').show();
 
                 //var _music = (vazee.control.Music.Instance.musicOn) ? "on" : "off";
                 //window.location.href = appurl + "?level=" + (curLevel + 1) + "&music=" + _music + "&prevscore=" + vazee.Counter.Instance.num + "&name=" + encodeURIComponent(username);
@@ -2428,10 +2430,10 @@ var vazee;
                 var _this = this;
                 PIXI.loader.reset();
                 var _list = [];
-                var _endLen = [2, 3, 2, 2, 3];
-                for (var i = 0; i < _endLen[curLevel - 1]; i++) {
-                    _list.push("img/end" + curLevel + i + ".json");
-                }
+                //var _endLen = [2, 3, 2, 2, 3];
+                //for (var i = 0; i < _endLen[curLevel - 1]; i++) {
+                //    _list.push("img/end" + curLevel + i + ".json");
+                //}
                 PIXI.loader.add(_list).load(function () {
                     success.Loader.Instance.visible = false;
                     _this.addChild(success.Ending.Instance);
@@ -2643,6 +2645,7 @@ var vazee;
             function TitleSub() {
                 _super.call(this, PIXI.Texture.fromFrame("title-sub.png"));
                 this.y = 113;
+                this.x = -50;
                 this.visible = false;
             }
             Object.defineProperty(TitleSub, "Instance", {
@@ -2668,7 +2671,9 @@ var vazee;
         var TitleText = (function (_super) {
             __extends(TitleText, _super);
             function TitleText() {
-                _super.call(this, PIXI.Texture.fromFrame("title-text.png"));
+                //_super.call(this, PIXI.Texture.fromFrame("title-text.png"));
+                _super.call(this, PIXI.Texture.fromFrame("img/home-title.png"));
+                this.y = -100;
                 this.visible = false;
             }
             Object.defineProperty(TitleText, "Instance", {
@@ -2741,8 +2746,8 @@ var vazee;
         __extends(GamingBg, _super);
         function GamingBg() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("ready.png"));
-            this.position.set(350, 200);
+            _super.call(this, PIXI.Texture.fromFrame("img/gaming.jpg"));
+            this.position.set(700, 50);
             this.visible = true;
         }
         Object.defineProperty(GamingBg, "Instance", {

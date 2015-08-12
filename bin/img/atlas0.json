@@ -466,11 +466,11 @@
 },
 "title-sub.png":
 {
-	"frame": {"x":2,"y":134,"w":715,"h":60},
+	"frame": {"x":2,"y":134,"w":800,"h":60},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":715,"h":60},
-	"sourceSize": {"w":715,"h":60}
+	"spriteSourceSize": {"x":0,"y":0,"w":800,"h":60},
+	"sourceSize": {"w":800,"h":60}
 },
 "title-text.png":
 {
