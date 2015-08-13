@@ -491,7 +491,7 @@ img {
   left: 100px;
   bottom: 0;
   right: 0;
-  color: #f50f15;
+  color: #2895F0;
   font-size: 14px;
   font-style: italic;
 }
@@ -562,7 +562,7 @@ img {
 .shoe-info .left-part{
   width: 30%;
   height: 90%;
-  background: url("img/shoe.png");
+  background: url("img/shoe2.png");
   background-size: 100% 100%;
   margin-left: 5%;
   position: absolute;

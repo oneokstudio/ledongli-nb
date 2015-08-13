@@ -1,0 +1,52 @@
+{"frames": {
+
+"btn-buy.png":
+{
+	"frame": {"x":445,"y":2,"w":228,"h":57},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":9,"y":10,"w":228,"h":57},
+	"sourceSize": {"w":250,"h":79}
+},
+"btn-share.png":
+{
+	"frame": {"x":382,"y":2,"w":215,"h":61},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":11,"y":8,"w":215,"h":61},
+	"sourceSize": {"w":235,"h":79}
+},
+"gaming.png":
+{
+	"frame": {"x":2,"y":2,"w":378,"h":212},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":41,"w":378,"h":212},
+	"sourceSize": {"w":512,"h":256}
+},
+"home-title.png":
+{
+	"frame": {"x":38,"y":232,"w":616,"h":162},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":60,"y":58,"w":616,"h":162},
+	"sourceSize": {"w":738,"h":270}
+},
+"record.png":
+{
+	"frame": {"x":2,"y":232,"w":676,"h":34},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":66,"y":11,"w":676,"h":34},
+	"sourceSize": {"w":800,"h":56}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "atlas2.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4b957499e2e1a7da1abd1995c7ed5f3d:1/1$"
+}
+}

@@ -62,17 +62,13 @@ var App = (function () {
             "img/track.jpg",
             "img/atlas0.json",
             "img/atlas1.json",
+            "img/atlas2.json",
             "img/score-export.xml",
             "img/font-export.xml",
             "img/shareGo.json",
             "img/share-back.jpg",
             "img/share-back-landscape.jpg",
-            "img/home-title.png",
-            "img/record.png",
-            "img/gaming.png",
-            "img/btn-buy.png",
-            "img/btn-share.png",
-            "img/shoe.png"
+            "img/shoe.json"
         ];
         //if (_animalLength[curLevel - 1] === 1) {
         //    _list.push("img/L" + curLevel + ".json");
@@ -187,6 +183,7 @@ var App = (function () {
         App.Portrait = (App.WinH > App.WinW);
         if (App.Portrait) {
             (appType === "game") ? $("#loader").addClass("r90") : $("#loader").removeClass("r90");
+            //(appType === "game") ? $(".full-screen").addClass("r90") : $("#loader").removeClass("r90");
         }
         else {
             (appType === "game") ? $("#loader").removeClass("r90") : $("#loader").addClass("r90");
@@ -777,7 +774,7 @@ var vazee;
             Counter.Stop = true;
             switch (curLevel) {
                 case 1:
-                    return (this._num <= 500);
+                    return (this._num <= 1000);
                 case 2:
                     return (this._num <= 390);
                 case 3:
@@ -1471,7 +1468,6 @@ var vazee;
             //        Hero.MaxSpeed = .88;
             //        break;
             //}
-            Hero.MaxSpeed = .5;
             this.onComplete = function () {
                 _this.gotoAndPlay(58);
             };
@@ -1503,7 +1499,8 @@ var vazee;
         });
         Hero.prototype.fnAddSpeed = function (aSpeedUp) {
             var _this = this;
-            this.animationSpeed += ((aSpeedUp) ? .015 : .005);
+            this.animationSpeed += ((aSpeedUp) ? 0.015 : 0.005);
+          console.log(this.animationSpeed, Hero.MaxSpeed);
             if (this.animationSpeed > Hero.MaxSpeed) {
                 this.animationSpeed = Hero.MaxSpeed;
             }
@@ -1523,8 +1520,8 @@ var vazee;
                 }
             }
         };
-        Hero.MinSpeed = .43;
-        Hero.MaxSpeed = .9;
+        Hero.MinSpeed = .33;
+        Hero.MaxSpeed = 3.3;
 
         //Hero.MinSpeed = 3.8;
         //Hero.MaxSpeed = 1.9;
@@ -2068,7 +2065,7 @@ var vazee;
     var TitleDefeat = (function (_super) {
       __extends(TitleDefeat, _super);
       function TitleDefeat() {
-        _super.call(this, PIXI.Texture.fromFrame("img/record.png"));
+        _super.call(this, PIXI.Texture.fromFrame("record.png"));
         this.position.set(-180, 155);
       }
       Object.defineProperty(TitleDefeat, "Instance", {
@@ -2557,6 +2554,7 @@ var vazee;
                 this.addChild(title.Light2.Instance);
                 this.position.set(200, 180);
                 this.rotation = -11.5 * Math.PI / 180;
+                title.TitleText.Instance.rotation = 2.2 * Math.PI / 180;
                 App.EventResize.on(function (aPortrait) {
                     _this.x = ((aPortrait) ? App.WinH : App.WinW) / App.Stage.scale.x - 800;
                 });
@@ -2710,8 +2708,8 @@ var vazee;
             __extends(TitleText, _super);
             function TitleText() {
                 //_super.call(this, PIXI.Texture.fromFrame("title-text.png"));
-                _super.call(this, PIXI.Texture.fromFrame("img/home-title.png"));
-                this.y = -100;
+                _super.call(this, PIXI.Texture.fromFrame("home-title.png"));
+                this.y = -115;
                 this.visible = false;
             }
             Object.defineProperty(TitleText, "Instance", {
@@ -2784,8 +2782,8 @@ var vazee;
         __extends(GamingBg, _super);
         function GamingBg() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("img/gaming.png"));
-            this.position.set(700, 80);
+            _super.call(this, PIXI.Texture.fromFrame("gaming.png"));
+            this.position.set(530, 80);
             this.visible = true;
         }
         Object.defineProperty(GamingBg, "Instance", {
@@ -2811,8 +2809,8 @@ var vazee;
         __extends(BtnBuy, _super);
         function BtnBuy() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("img/btn-buy.png"));
-            this.position.set(680, 530);
+            _super.call(this, PIXI.Texture.fromFrame("btn-buy.png"));
+            this.position.set(500, 530);
             this.visible = true;
         }
         Object.defineProperty(BtnBuy, "Instance", {
@@ -2838,8 +2836,9 @@ var vazee;
         __extends(BtnShare, _super);
         function BtnShare() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("img/btn-share.png"));
-            this.position.set(930, 530);
+            _super.call(this, PIXI.Texture.fromFrame("btn-share.png"));
+            this.position.set(750, 530);
+
             this.visible = true;
         }
         Object.defineProperty(BtnShare, "Instance", {
@@ -2880,8 +2879,8 @@ var vazee;
     __extends(Shoe, _super);
     function Shoe() {
       var _this = this;
-      _super.call(this, PIXI.Texture.fromFrame("img/shoe.png"));
-      this.position.set(0, 30);
+      _super.call(this, PIXI.Texture.fromFrame("shoe.png"));
+      this.position.set(-50, 30);
       this.visible = true;
     }
     Object.defineProperty(Shoe, "Instance", {
