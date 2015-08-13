@@ -69,7 +69,7 @@ var App = (function () {
             "img/share-back-landscape.jpg",
             "img/home-title.png",
             "img/record.png",
-            "img/gaming.jpg",
+            "img/gaming.png",
             "img/btn-buy.png",
             "img/btn-share.png",
             "img/shoe.png"
@@ -2785,8 +2785,8 @@ var vazee;
         __extends(GamingBg, _super);
         function GamingBg() {
             var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("img/gaming.jpg"));
-            this.position.set(700, 50);
+            _super.call(this, PIXI.Texture.fromFrame("img/gaming.png"));
+            this.position.set(700, 80);
             this.visible = true;
         }
         Object.defineProperty(GamingBg, "Instance", {
