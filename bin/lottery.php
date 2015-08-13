@@ -8,6 +8,14 @@
 
 const MAX_NUM = 100;
 const RATE = 5000;
+const MAX_PLAY_TIMES = 1;
+
+if (isset($_COOKIE['play_time']) && isset($_COOKIE['play_times'])) {
+    if ($_COOKIE['play_time'] == date("Y-m-d") && $_COOKIE['play_times'] >= MAX_PLAY_TIMES) {
+        echo json_encode(['code' => '200', 'msg' => '一天只能抽奖5次哦']);
+        die();
+    }
+}
 
 try {
     $db = new PDO('mysql:host=127.0.0.1;dbname=vazee', 'root', 'zxc');
@@ -23,6 +31,8 @@ try {
     die();
 }
 
+$_COOKIE['play_time'] = date('Y-m-d');
+$_COOKIE['play_times'] = isset($_COOKIE['play_times']) ? $_COOKIE['play_times'] + 1 : 1;
 
 if ($num > MAX_NUM) {
     setcookie('can_get', 0);
@@ -37,7 +47,6 @@ if ($num > MAX_NUM) {
         echo json_encode(['code' => '200', 'success' => false, 'msg' => '没抽中']);
     }
 }
-
 
 ?>
 
