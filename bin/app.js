@@ -110,7 +110,7 @@ var App = (function () {
     };
     App.FnGameInit = function () {
         if (!App.Render) {
-            //Sfx.FnBgm();
+            Sfx.FnBgm();
             App.EventState = new LiteEvent();
             App.EventResize = new LiteEvent();
             App.EventUpdate = new LiteEvent();
@@ -1523,11 +1523,11 @@ var vazee;
                 }
             }
         };
-        //Hero.MinSpeed = .43;
-        //Hero.MaxSpeed = .9;
+        Hero.MinSpeed = .43;
+        Hero.MaxSpeed = .9;
 
-        Hero.MinSpeed = 3.8;
-        Hero.MaxSpeed = 1.9;
+        //Hero.MinSpeed = 3.8;
+        //Hero.MaxSpeed = 1.9;
 
         return Hero;
     })(PIXI.extras.MovieClip);
