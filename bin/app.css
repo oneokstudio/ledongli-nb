@@ -483,12 +483,12 @@ img {
 }
 #percent {
   font-family: 'numfont';
-  width: 18px;
+  width: 35px;
   height: 18px;
   margin: auto;
   position: absolute;
   top: 50px;
-  left: 80px;
+  left: 100px;
   bottom: 0;
   right: 0;
   color: #f50f15;
