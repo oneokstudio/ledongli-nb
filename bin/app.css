@@ -538,18 +538,19 @@ img {
 }
 .fs-success .right-part{
   background: url("img/success-right.png");
+  margin-left: 40%!important;
 }
 .fs-fail .fail-right{
   background: url("img/fail-bg.png");
   background-size: 100% 100%;
   width: 100%;
-  height: 65%;
+  height: 72%;
 }
 .fs-fail .btn-replay{
   background: url("img/btn-replay.png");
   background-size: 100% 100%;
   width: 35%;
-  height: 20%;
+  height: 30%;
   margin: 0 auto;
 }
 
@@ -563,21 +564,21 @@ img {
   height: 90%;
   background: url("img/shoe.png");
   background-size: 100% 100%;
-  margin-left: 10%;
+  margin-left: 5%;
   position: absolute;
   top: 20%;
 }
 .shoe-info .right-part{
   width: 50%;
-  height: 80%;
+  height: 50%;
   background-size: 100% 100%;
   margin-left: 45%;
   position: absolute;
-  top: 20%;
+  top: 36%;
 }
 .user-info {
   position: relative;
-  padding: 0 10%;
+  padding-left: 15%;
   overflow: hidden;
 }
 .user-info .tip {
@@ -626,4 +627,10 @@ img {
 .btn-submit {
   background: url("img/btn-submit.png");
   background-size: 100% 100%;
+}
+
+.fs-fail .left-part {
+  width: 35%;
+  height: 100%;
+  margin-left: 10%;
 }

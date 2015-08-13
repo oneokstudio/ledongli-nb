@@ -110,7 +110,7 @@ var App = (function () {
     };
     App.FnGameInit = function () {
         if (!App.Render) {
-            Sfx.FnBgm();
+            //Sfx.FnBgm();
             App.EventState = new LiteEvent();
             App.EventResize = new LiteEvent();
             App.EventUpdate = new LiteEvent();
@@ -1523,11 +1523,11 @@ var vazee;
                 }
             }
         };
-        Hero.MinSpeed = .43;
-        Hero.MaxSpeed = .9;
+        //Hero.MinSpeed = .43;
+        //Hero.MaxSpeed = .9;
 
-        //Hero.MinSpeed = 3.8;
-        //Hero.MaxSpeed = 1.9;
+        Hero.MinSpeed = 3.8;
+        Hero.MaxSpeed = 1.9;
 
         return Hero;
     })(PIXI.extras.MovieClip);
@@ -2069,7 +2069,7 @@ var vazee;
       __extends(TitleDefeat, _super);
       function TitleDefeat() {
         _super.call(this, PIXI.Texture.fromFrame("img/record.png"));
-        this.position.set(0, 220);
+        this.position.set(-180, 155);
       }
       Object.defineProperty(TitleDefeat, "Instance", {
         get: function () {
@@ -2095,7 +2095,7 @@ var vazee;
             __extends(BtnNext, _super);
             function BtnNext() {
                 _super.call(this, PIXI.Texture.fromFrame("success-btn-next.png"));
-                this.position.set(20, 243);
+                this.position.set(20, 190);
                 this.visible = (curLevel < 5);
             }
             Object.defineProperty(BtnNext, "Instance", {
@@ -2123,18 +2123,19 @@ var vazee;
                     data:{},
                     url: "lottery.php",
                     success: function(res){
-                        if(res.code == 200){
-                          // 成功
-                          if (res.success) {
-                            $('.fs-success').show();
-                          // 失败
-                          } else {
-                            $('.fs-fail').show();
-                          }
-                          // 服务器异常
-                        } else {
-                            alert(res.msg)
-                        }
+                      $('.fs-success').show();
+                        //if(res.code == 200){
+                        //  // 成功
+                        //  if (res.success) {
+                        //    $('.fs-success').show();
+                        //  // 失败
+                        //  } else {
+                        //    $('.fs-fail').show();
+                        //  }
+                        //  // 服务器异常
+                        //} else {
+                        //    alert(res.msg)
+                        //}
                     },
                     error: function (res) {
                       alert('网络发生异常！请稍后再试');
@@ -2159,7 +2160,7 @@ var vazee;
             function BtnShare() {
                 _super.call(this, PIXI.Texture.fromFrame("success-btn-share.png"));
                 this.addChild(success.Light.Instance);
-                this.position.set(-90, 340);
+                this.position.set(-90, 280);
             }
             Object.defineProperty(BtnShare, "Instance", {
                 get: function () {
@@ -2230,7 +2231,7 @@ var vazee;
             __extends(Copy, _super);
             function Copy() {
                 _super.call(this, PIXI.Texture.fromFrame("success-copy.png"));
-                this.position.set(57, 0);
+                this.position.set(127, -50);
             }
             Object.defineProperty(Copy, "Instance", {
                 get: function () {
@@ -2372,7 +2373,7 @@ var vazee;
             __extends(Score, _super);
             function Score() {
                 _super.call(this, "0.0", { font: "100px score-export", align: "right" });
-                this.position.set(410 - this.textWidth, 105);
+                this.position.set(410 - this.textWidth, 50);
                 this._num = 0;
             }
             Object.defineProperty(Score, "Instance", {
@@ -2682,7 +2683,7 @@ var vazee;
             __extends(TitleSub, _super);
             function TitleSub() {
                 _super.call(this, PIXI.Texture.fromFrame("title-sub.png"));
-                this.y = 113;
+                this.y = 123;
                 this.x = -50;
                 this.visible = false;
             }
@@ -2812,7 +2813,7 @@ var vazee;
         function BtnBuy() {
             var _this = this;
             _super.call(this, PIXI.Texture.fromFrame("img/btn-buy.png"));
-            this.position.set(500, 530);
+            this.position.set(680, 530);
             this.visible = true;
         }
         Object.defineProperty(BtnBuy, "Instance", {
@@ -2839,7 +2840,7 @@ var vazee;
         function BtnShare() {
             var _this = this;
             _super.call(this, PIXI.Texture.fromFrame("img/btn-share.png"));
-            this.position.set(900, 530);
+            this.position.set(930, 530);
             this.visible = true;
         }
         Object.defineProperty(BtnShare, "Instance", {
@@ -2881,7 +2882,7 @@ var vazee;
     function Shoe() {
       var _this = this;
       _super.call(this, PIXI.Texture.fromFrame("img/shoe.png"));
-      this.position.set(30, 30);
+      this.position.set(0, 30);
       this.visible = true;
     }
     Object.defineProperty(Shoe, "Instance", {
