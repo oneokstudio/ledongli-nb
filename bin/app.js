@@ -110,7 +110,7 @@ var App = (function () {
     };
     App.FnGameInit = function () {
         if (!App.Render) {
-            //Sfx.FnBgm();
+            Sfx.FnBgm();
             App.EventState = new LiteEvent();
             App.EventResize = new LiteEvent();
             App.EventUpdate = new LiteEvent();
@@ -877,8 +877,9 @@ var vazee;
             };
             BtnRestart.prototype.fnTap = function () {
                 _hmt.push(["_trackEvent", "button", "click", "Restart"]);
-                var _music = (vazee.control.Music.Instance.musicOn) ? "on" : "off";
-                window.location.href = appurl + "?level=" + (curLevel) + "&music=" + _music + "&prevscore=" + prevscore + "&name=" + encodeURIComponent(username);
+              location.reload();
+                //var _music = (vazee.control.Music.Instance.musicOn) ? "on" : "off";
+                //window.location.href = appurl + "?level=" + (curLevel) + "&music=" + _music + "&prevscore=" + prevscore + "&name=" + encodeURIComponent(username);
             };
             return BtnRestart;
         })(PIXI.Sprite);
@@ -1522,10 +1523,10 @@ var vazee;
                 }
             }
         };
-        //Hero.MinSpeed = .33;
-        //Hero.MaxSpeed = .9;
+        Hero.MinSpeed = .43;
+        Hero.MaxSpeed = .9;
 
-        Hero.MinSpeed = 3.8;
+        //Hero.MinSpeed = 3.8;
         //Hero.MaxSpeed = 1.9;
 
         return Hero;
@@ -2122,13 +2123,17 @@ var vazee;
                     data:{},
                     url: "lottery.php",
                     success: function(res){
-                        if(res.code != 1){
-                            // 成功
-                            //alert(res.msg);
+                        if(res.code == 200){
+                          // 成功
+                          if (res.success) {
                             $('.fs-success').show();
-                        } else {
-                            // 失败
+                          // 失败
+                          } else {
                             $('.fs-fail').show();
+                          }
+                          // 服务器异常
+                        } else {
+                            alert(res.msg)
                         }
                     },
                     error: function (res) {
