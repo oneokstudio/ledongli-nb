@@ -2123,19 +2123,18 @@ var vazee;
                     data:{},
                     url: "lottery.php",
                     success: function(res){
-                      $('.fs-success').show();
-                        //if(res.code == 200){
-                        //  // 成功
-                        //  if (res.success) {
-                        //    $('.fs-success').show();
-                        //  // 失败
-                        //  } else {
-                        //    $('.fs-fail').show();
-                        //  }
-                        //  // 服务器异常
-                        //} else {
-                        //    alert(res.msg)
-                        //}
+                        if(res.code == 200){
+                          // 成功
+                          if (res.success) {
+                            $('.fs-success').show();
+                          // 失败
+                          } else {
+                            $('.fs-fail').show();
+                          }
+                          // 服务器异常
+                        } else {
+                            alert(res.msg)
+                        }
                     },
                     error: function (res) {
                       alert('网络发生异常！请稍后再试');
