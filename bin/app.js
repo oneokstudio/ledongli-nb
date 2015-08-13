@@ -2137,6 +2137,7 @@ var vazee;
                         }
                     },
                     error: function (res) {
+                      alert('网络发生异常！请稍后再试');
                     }
                 });
 

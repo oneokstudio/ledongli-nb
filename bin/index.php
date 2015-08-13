@@ -112,16 +112,19 @@ $signPackage = $jssdk->GetSignPackage();
 				  },
 				  url: 'user_info.php',
 				  success: function(res){
-					  if(res.code == 1){
-						  alert(res.msg);
+					  if(res.code == 200){
+						  if (alert('上传信息成功~')) {
+                              $(".fs-success").hide();
+                              $("#game").show();
+                              App.FnGameInit();
+                          };
 					  } else {
 						  alert(res.msg);
 					  }
-                      $(".fs-success").hide();
-                      $("#game").show();
-                      App.FnGameInit();
+
 				  },
 				  error: function (res) {
+                      alert('网络发生异常！请稍后再试');
 				  }
 			  });
 		  }
