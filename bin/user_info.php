@@ -23,18 +23,18 @@ if ($_COOKIE['can_get']) {
             $stmt->execute();
             $db = null;
         } catch (PDOException $e) {
-            echo json_encode(['code' => '0', 'msg' => '服务器繁忙，请稍后重试']);
+            echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
             die();
         }
 
         setcookie('can_get', 0);
-        echo json_encode(['code' => '1', 'msg' => '登记成功，稍后我们会有专人来联系您']);
+        echo json_encode(['code' => '200']);
     } else {
-        echo json_encode(['code' => '0', 'msg' => '请按要求填写您的手机号码和姓名']);
+        echo json_encode(['code' => '200']);
     }
 
 } else {
-    echo json_encode(['code' => '0', 'msg' => '您不满足领奖的条件哦']);
+    echo json_encode(['code' => '200']);
 }
 
 

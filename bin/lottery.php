@@ -6,7 +6,7 @@
  * Time: 下午10:30
  */
 
-const MAX_NUM = 1;
+const MAX_NUM = 10;
 const RATE = 1;
 
 try {
@@ -19,22 +19,22 @@ try {
 
     $db = null;
 } catch (PDOException $e) {
-    echo json_encode(['code' => '0', 'msg' => '服务器繁忙，请稍后重试']);
+    echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
     die();
 }
 
 
 if ($num > MAX_NUM) {
     setcookie('can_get', 0);
-    echo json_encode(['code' => '0', 'msg' => '名额已满']);
+    echo json_encode(['code' => '200', 'success' => false]);
 } else {
     $rand = rand(1, 10000);
     if ($rand <= RATE) {
         setcookie('can_get', 1);
-        echo json_encode(['code' => '1', 'msg' => '抽中了']);
+        echo json_encode(['code' => '200', 'success' => true]);
     } else {
         setcookie('can_get', 0);
-        echo json_encode(['code' => '0', 'msg' => '没抽中']);
+        echo json_encode(['code' => '200', 'success' => false]);
     }
 }
 
