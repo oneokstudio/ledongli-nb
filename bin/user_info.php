@@ -28,13 +28,13 @@ if ($_COOKIE['can_get']) {
         }
 
         setcookie('can_get', 0);
-        echo json_encode(['code' => '200']);
+        echo json_encode(['code' => '200', 'msg' => '登记成功']);
     } else {
-        echo json_encode(['code' => '200']);
+        echo json_encode(['code' => '400', 'msg' => '请按要求填写手机号码和姓名']);
     }
 
 } else {
-    echo json_encode(['code' => '200']);
+    echo json_encode(['code' => '400', 'msg' => '不满足领奖条件']);
 }
 
 

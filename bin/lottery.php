@@ -6,8 +6,8 @@
  * Time: 下午10:30
  */
 
-const MAX_NUM = 10;
-const RATE = 1;
+const MAX_NUM = 100;
+const RATE = 5000;
 
 try {
     $db = new PDO('mysql:host=127.0.0.1;dbname=vazee', 'root', 'zxc');
@@ -26,15 +26,15 @@ try {
 
 if ($num > MAX_NUM) {
     setcookie('can_get', 0);
-    echo json_encode(['code' => '200', 'success' => false]);
+    echo json_encode(['code' => '200', 'success' => false, 'msg' => '名额已满']);
 } else {
     $rand = rand(1, 10000);
     if ($rand <= RATE) {
         setcookie('can_get', 1);
-        echo json_encode(['code' => '200', 'success' => true]);
+        echo json_encode(['code' => '200', 'success' => true, 'msg' => '抽中了']);
     } else {
         setcookie('can_get', 0);
-        echo json_encode(['code' => '200', 'success' => false]);
+        echo json_encode(['code' => '200', 'success' => false, 'msg' => '没抽中']);
     }
 }
 
