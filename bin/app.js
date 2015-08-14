@@ -2128,19 +2128,19 @@ var vazee;
                     },
                     error: function(jqXHR, exception) {
                       if (jqXHR.status === 0) {
-                        Base.UI.alert('提示', '连接失败，请稍后重试~');
+                        alert('提示', '连接失败，请稍后重试~');
                       } else if (jqXHR.status == 401) {
-                        Base.UI.alert('提示', '连接服务器需要权限~');
+                        alert('提示', '连接服务器需要权限~');
                       } else if (jqXHR.status == 404) {
-                        Base.UI.alert('提示', '请求 url 无法找到。[404]');
+                        alert('提示', '请求 url 无法找到。[404]');
                       } else if (jqXHR.status >= 500 && jqXHR.status < 600) {
-                        Base.UI.alert('提示', '十分抱歉，服务器内部发生错误。' + jqXHR.status);
+                        alert('提示', '十分抱歉，服务器内部发生错误。' + jqXHR.status);
                       } else if (exception === 'parsererror') {
-                        Base.UI.alert('提示', 'JSON 解析失败！请尝试切换网络。');
+                        alert('提示', 'JSON 解析失败！请尝试切换网络。');
                       } else if (exception === 'timeout') {
-                        Base.UI.alert('提示', '连接超时，请稍后重试~');
+                        alert('提示', '连接超时，请稍后重试~');
                       } else {
-                        Base.UI.alert('提示', '发现未知错误。(' + jqXHR.responseText + ', ' + exception + ')');
+                        alert('提示', '发现未知错误。(' + jqXHR.responseText + ', ' + exception + ')');
                       }
                     }
                 });
