@@ -143,7 +143,6 @@ var App = (function () {
         App.EventState.trigger(2 /* STATE_START */);
     };
     App.FnGaming = function () {
-        console.log('App.State', App.State);
         if (App.State === 3 /* STATE_GAMING */) {
             return;
         }
@@ -550,7 +549,6 @@ var vazee;
                     }
                 });
                 App.EventState.on(function (aState) {
-                    console.log('aState', aState);
                     if (aState === 2 /* STATE_START */) {
                         if (_this.tlDemo) {
                             _this.tlDemo.kill();
@@ -559,7 +557,6 @@ var vazee;
                         control.FingerRight.Instance.visible = false;
                         control.BtnLeft.Instance.fnNormal();
                         control.BtnRight.Instance.fnNormal();
-                        console.log('fnActive');
                         _this.fnActive();
                     }
                 });
@@ -602,7 +599,6 @@ var vazee;
                 control.BtnLeft.Instance.fnActive();
                 control.BtnRight.Instance.fnActive();
                 //App.FnGaming();
-                console.log('control fnactive');
             };
             Control.CurTap = 0 /* LEFT */;
             return Control;
@@ -1472,7 +1468,6 @@ var vazee;
                 _this.gotoAndPlay(58);
             };
             App.EventState.on(function (aState) {
-                console.log('hero aState', aState);
                 switch (aState) {
                     case 3 /* STATE_GAMING */:
                         _this.play();
@@ -1500,7 +1495,6 @@ var vazee;
         Hero.prototype.fnAddSpeed = function (aSpeedUp) {
             var _this = this;
             this.animationSpeed += ((aSpeedUp) ? 0.015 : 0.005);
-          console.log(this.animationSpeed, Hero.MaxSpeed);
             if (this.animationSpeed > Hero.MaxSpeed) {
                 this.animationSpeed = Hero.MaxSpeed;
             }
@@ -1568,7 +1562,6 @@ var vazee;
                 _super.call(this);
 
                 this.addChild(level.Ready.Instance);
-                console.log('11');
                 this.addChild(level.Go.Instance);
                 //this.addChild(level.LevelNum.Instance);
 
@@ -2133,8 +2126,22 @@ var vazee;
                             alert(res.msg)
                         }
                     },
-                    error: function (res) {
-                      alert('网络发生异常！请稍后再试');
+                    error: function(jqXHR, exception) {
+                      if (jqXHR.status === 0) {
+                        Base.UI.alert('提示', '连接失败，请稍后重试~');
+                      } else if (jqXHR.status == 401) {
+                        Base.UI.alert('提示', '连接服务器需要权限~');
+                      } else if (jqXHR.status == 404) {
+                        Base.UI.alert('提示', '请求 url 无法找到。[404]');
+                      } else if (jqXHR.status >= 500 && jqXHR.status < 600) {
+                        Base.UI.alert('提示', '十分抱歉，服务器内部发生错误。' + jqXHR.status);
+                      } else if (exception === 'parsererror') {
+                        Base.UI.alert('提示', 'JSON 解析失败！请尝试切换网络。');
+                      } else if (exception === 'timeout') {
+                        Base.UI.alert('提示', '连接超时，请稍后重试~');
+                      } else {
+                        Base.UI.alert('提示', '发现未知错误。(' + jqXHR.responseText + ', ' + exception + ')');
+                      }
                     }
                 });
 
