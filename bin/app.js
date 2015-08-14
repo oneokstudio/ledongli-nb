@@ -161,6 +161,8 @@ var App = (function () {
         App.Stage.addChild(vazee.BtnBuy.Instance);
         App.Stage.addChild(vazee.BtnShare.Instance);
         App.Stage.addChild(vazee.Shoe.Instance);
+        vazee.BtnShare.Instance.fnActive();
+        vazee.BtnBuy.Instance.fnActive();
     };
     App.FnLoop = function () {
         window.requestAnimFrame(App.FnLoop);
@@ -2790,7 +2792,7 @@ var vazee;
         function GamingBg() {
             var _this = this;
             _super.call(this, PIXI.Texture.fromFrame("gaming.png"));
-            this.position.set(530, 80);
+            this.position.set(560, 80);
             this.visible = true;
         }
         Object.defineProperty(GamingBg, "Instance", {
