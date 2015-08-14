@@ -25,11 +25,11 @@ var WXSHARE = {
 
     init: function (config) {
       var _this = this;
-      $.post ('/event-api/wx/config', {url:location.href}, function (res) {
-          var _data = res.data.sign;
+      $.get ('http://walk.ledongli.cn:8090/v2/rest/users/wechatjssign', {url:location.href}, function (res) {
+          var _data = res.ret;
           wx.config({
               debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-              appId: 'wxe698f11ffa868d84', // 必填，公众号的唯一标识
+              appId: 'wx13e719bc136549a8', // 必填，公众号的唯一标识
               timestamp: _data.timestamp, // 必填，生成签名的时间戳
               nonceStr: _data.nonceStr, // 必填，生成签名的随机串
               signature: _data.signature,// 必填，签名，见附录1

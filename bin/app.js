@@ -784,8 +784,16 @@ var vazee;
             }
         };
         Counter.prototype.fnSetWx = function () {
-            var _link = appurl + "share.php?friend=1&friendlevel=" + curLevel + "&score=" + this._num + "&name=" + encodeURIComponent(username);
-            fnWxShare(fnGetCopy(this._num, username, curLevel), _link);
+            //var _link = appurl + "share.php?friend=1&friendlevel=" + curLevel + "&score=" + this._num + "&name=" + encodeURIComponent(username);
+            //fnWxShare(fnGetCopy(this._num, username, curLevel), _link);
+
+            shareData = {
+              'image_url':'',
+              'link_url': location.href,
+              'title':'10米疾跑' + this._num + '秒，来挑战我的神速！',
+              'content':'NB无负提速，疾跑PK游戏',
+              'shared_to':'0'
+            }
         };
         Object.defineProperty(Counter.prototype, "num", {
             get: function () {
@@ -1516,7 +1524,7 @@ var vazee;
                 }
             }
         };
-        Hero.MinSpeed = .33;
+        Hero.MinSpeed = 0.33;
         Hero.MaxSpeed = 3.3;
 
         //Hero.MinSpeed = 3.8;
@@ -1779,7 +1787,7 @@ var vazee;
                 this.addChild(share.Copy.Instance);
                 App.EventResize.on(function (aPortrait) {
                     if (App.Portrait) {
-                        _this.rotation = -(44.9 + 90) * Math.PI / 180;
+                        _this.rotation = -(44.9+90) * Math.PI / 180;
                         _this.position.set(830, 800);
                     }
                     else {
@@ -1968,15 +1976,20 @@ var vazee;
                 });
             };
             Share.prototype.fnTap = function () {
-                if (share.Shoe.Instance.visible) {
-                    this.fnHide();
-                    _hmt.push(["_trackEvent", "page", "view", "Ad_Loaded"]);
-                }
-                else {
-                    share.Content.Instance.visible = false;
-                    share.Shoe.Instance.visible = true;
-                    _hmt.push(["_trackEvent", "button", "click", "ShareBack"]);
-                }
+              this.fnHide();
+              vazee.Shoe.Instance.visible = true;
+              vazee.BtnBuy.Instance.visible = true;
+              vazee.BtnShare.Instance.visible = true;
+              Success.fnShow();
+                //if (share.Shoe.Instance.visible) {
+                //    this.fnHide();
+                //    _hmt.push(["_trackEvent", "page", "view", "Ad_Loaded"]);
+                //}
+                //else {
+                //    share.Content.Instance.visible = false;
+                //    share.Shoe.Instance.visible = true;
+                //    _hmt.push(["_trackEvent", "button", "click", "ShareBack"]);
+                //}
             };
             return Share;
         })(PIXI.Container);
@@ -2109,6 +2122,7 @@ var vazee;
             BtnNext.prototype.fnTap = function () {
               _hmt.push(["_trackEvent", "button", "click", "NextLevel"]);
 
+              $('.fs-fail').show();
                 $.ajax({
                     type: "post",
                     dataType: "json",
@@ -2876,13 +2890,15 @@ var vazee;
           }
         };
         BtnShare.prototype.fnTap = function () {
-          setShare({
-            'image_url':'',
-            'link_url': location.href,
-            'title':'10米疾跑xx秒，来挑战我的神速！',
-            'content':'NB无负提速，疾跑PK游戏',
-            'shared_to':'0'
-          });
+          setShare(shareData);
+
+          if (platform == 'wx') {
+            vazee.share.Share.Instance.fnShow();
+            vazee.Shoe.Instance.visible = false;
+            vazee.BtnBuy.Instance.visible = false;
+            vazee.BtnShare.Instance.visible = false;
+            fnShowShoe();
+          }
         };
         return BtnShare;
     })(PIXI.Sprite);
