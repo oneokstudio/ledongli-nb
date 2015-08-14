@@ -164,6 +164,16 @@ $signPackage = $jssdk->GetSignPackage();
 	  }
 
       //分享
+      var platform = '';
+      var ua = navigator.userAgent.toLowerCase();
+      if (/micromessenger/i.test(ua)) {
+          platform = 'wx';
+      }
+      if (/(iphone|ipod|ipad)/i.test(ua)) {
+          platform = 'ios';
+      } else if (/(android)/i.test(ua)) {
+          platform = 'android';
+      }
       function connectWebViewJavascriptBridge (callback) {
           if (window.WebViewJavascriptBridge) {
               callback(WebViewJavascriptBridge)
@@ -174,9 +184,12 @@ $signPackage = $jssdk->GetSignPackage();
           }
       }
       function setShare (conf) {
-          if (android) {
+//          if (platform == 'wx') {
+//
+//          } else
+          if(platform == 'android') {
               return window.web && web.setWebViewShare(conf);
-          } else if (ios) {
+          } else if (platform == 'ios') {
               connectWebViewJavascriptBridge(function (bridge) {
                   bridge.callHandler('setWebViewShare', conf, function() {});
               });

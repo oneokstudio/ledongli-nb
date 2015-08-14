@@ -2182,7 +2182,7 @@ var vazee;
                 }
             };
             BtnShare.prototype.fnTap = function () {
-                location.href = 'http://www.baidu.com';
+                location.href = 'http://vazee.newbalance.com.cn/';
             };
             return BtnShare;
         })(PIXI.Sprite);
@@ -2830,6 +2830,15 @@ var vazee;
             enumerable: true,
             configurable: true
         });
+        BtnBuy.prototype.fnActive = function () {
+          if (!this.interactive) {
+            this.buttonMode = this.interactive = true;
+            this.on("click", this.fnTap).on("tap", this.fnTap);
+          }
+        };
+        BtnBuy.prototype.fnTap = function () {
+          location.href = 'https://newbalance.tmall.com';
+        };
         return BtnBuy;
     })(PIXI.Sprite);
     vazee.BtnBuy = BtnBuy;
@@ -2867,9 +2876,9 @@ var vazee;
         BtnShare.prototype.fnTap = function () {
           setShare({
             'image_url':'',
-            'link_url':'http://www.baidu.com',
-            'title':'乐动力NB',
-            'content':'乐动力NBBB',
+            'link_url': location.href,
+            'title':'10米疾跑xx秒，来挑战我的神速！',
+            'content':'NB无负提速，疾跑PK游戏',
             'shared_to':'0'
           });
         };
