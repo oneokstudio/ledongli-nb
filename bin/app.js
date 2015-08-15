@@ -329,9 +329,12 @@ var Sfx = (function () {
         createjs.Sound.alternateExtensions = ["ogg"];
         createjs.Sound.addEventListener("fileload", Sfx.FnPlayBgm);
         createjs.Sound.registerSounds(sounds, audioPath);
+
     };
     Sfx.FnPlayBgm = function () {
+      //alert(1);
         vazee.control.Music.Instance.fnActive();
+
         if (musicOn) {
             createjs.Sound.play("Music", createjs.Sound.INTERRUPT_ANY, 0, 0, -1, .1);
         }
@@ -791,8 +794,8 @@ var vazee;
               'image_url':'',
               'link_url': location.href,
               'title':'10米疾跑' + this._num + '秒，来挑战我的神速！',
-              'content':'NB无负提速，疾跑PK游戏',
-              'shared_to':'0'
+              'content':'NB 无负提速，疾跑 PK 游戏',
+              'shared_to':'1'
             }
         };
         Object.defineProperty(Counter.prototype, "num", {
@@ -1524,7 +1527,7 @@ var vazee;
                 }
             }
         };
-        Hero.MinSpeed = 0.33;
+        Hero.MinSpeed = 3.33;
         Hero.MaxSpeed = 3.3;
 
         //Hero.MinSpeed = 3.8;
@@ -2892,13 +2895,10 @@ var vazee;
         BtnShare.prototype.fnTap = function () {
           setShare(shareData);
 
-          if (platform == 'wx') {
-            vazee.share.Share.Instance.fnShow();
-            vazee.Shoe.Instance.visible = false;
-            vazee.BtnBuy.Instance.visible = false;
-            vazee.BtnShare.Instance.visible = false;
-            fnShowShoe();
-          }
+          vazee.share.Share.Instance.fnShow();
+          vazee.Shoe.Instance.visible = false;
+          vazee.BtnBuy.Instance.visible = false;
+          vazee.BtnShare.Instance.visible = false;
         };
         return BtnShare;
     })(PIXI.Sprite);
