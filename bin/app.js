@@ -786,12 +786,13 @@ var vazee;
             //fnWxShare(fnGetCopy(this._num, username, curLevel), _link);
 
             shareData = {
-              'image_url':'',
+              'image_url':'http://115.159.67.149/ledongli-nb/bin/img/shareicon.jpg',
               'link_url': location.href,
-              'title':'10米疾跑' + this._num + '秒，来挑战我的神速！',
-              'content':'NB 无负提速，疾跑 PK 游戏',
+              'title':'10米疾跑' + parseFloat(this._num / 100).toFixed(2) + '秒，来挑战我的神速！',
+              'content':'NB无负提速，疾跑PK游戏',
               'shared_to':'1'
             }
+          console.log(shareData);
         };
         Object.defineProperty(Counter.prototype, "num", {
             get: function () {

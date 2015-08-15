@@ -184,10 +184,10 @@ if (isset($_REQUEST["name"]) && isset($_REQUEST["level"]) && isset($_REQUEST["mu
       }
 
       setShare({
-        'image_url':'',
+        'image_url':'http://115.159.67.149/ledongli-nb/bin/img/shareicon.jpg',
         'link_url': location.href,
-        'title':'最任性的疾跑 PK 游戏',
-        'content':'NB 无负提速，疾跑 PK 游戏',
+        'title':'最任性的疾跑PK游戏',
+        'content':'NB无负提速，疾跑PK游戏',
         'shared_to':'1'
       })
 
