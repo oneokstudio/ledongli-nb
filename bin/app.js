@@ -158,11 +158,6 @@ var App = (function () {
         App.State = 4 /* STATE_GAMEOVER */;
         App.EventState.trigger(4 /* STATE_GAMEOVER */);
         App.Stage.removeChild(vazee.GamingBg.Instance);
-        App.Stage.addChild(vazee.BtnBuy.Instance);
-        App.Stage.addChild(vazee.BtnShare.Instance);
-        App.Stage.addChild(vazee.Shoe.Instance);
-        vazee.BtnShare.Instance.fnActive();
-        vazee.BtnBuy.Instance.fnActive();
     };
     App.FnLoop = function () {
         window.requestAnimFrame(App.FnLoop);
@@ -1527,7 +1522,7 @@ var vazee;
                 }
             }
         };
-        Hero.MinSpeed = 3.33;
+        Hero.MinSpeed = 0.33;
         Hero.MaxSpeed = 3.3;
 
         //Hero.MinSpeed = 3.8;
@@ -1970,7 +1965,7 @@ var vazee;
                 TweenMax.to(this, .3, {
                     y: 640,
                     onComplete: function () {
-                        share.Shoe.Instance.visible = false;
+                        //share.Shoe.Instance.visible = false;
                         share.Content.Instance.visible = true;
                         share.Copy.Instance.fnReset();
                         share.Ready.Instance.fnReset();
@@ -1980,19 +1975,7 @@ var vazee;
             };
             Share.prototype.fnTap = function () {
               this.fnHide();
-              vazee.Shoe.Instance.visible = true;
-              vazee.BtnBuy.Instance.visible = true;
-              vazee.BtnShare.Instance.visible = true;
               Success.fnShow();
-                //if (share.Shoe.Instance.visible) {
-                //    this.fnHide();
-                //    _hmt.push(["_trackEvent", "page", "view", "Ad_Loaded"]);
-                //}
-                //else {
-                //    share.Content.Instance.visible = false;
-                //    share.Shoe.Instance.visible = true;
-                //    _hmt.push(["_trackEvent", "button", "click", "ShareBack"]);
-                //}
             };
             return Share;
         })(PIXI.Container);
@@ -2076,6 +2059,7 @@ var vazee;
     var TitleDefeat = (function (_super) {
       __extends(TitleDefeat, _super);
       function TitleDefeat() {
+        //_super.call(this, PIXI.Texture.fromFrame("success-btn-share.png"));
         _super.call(this, PIXI.Texture.fromFrame("record.png"));
         this.position.set(-180, 155);
       }
@@ -2208,6 +2192,116 @@ var vazee;
         success.BtnShare = BtnShare;
     })(success = vazee.success || (vazee.success = {}));
 })(vazee || (vazee = {}));
+
+//分享按钮
+var vazee;
+(function (vazee) {
+  var success;
+  (function (success) {
+    "use strict";
+    var BtnShare2 = (function (_super) {
+      __extends(BtnShare2, _super);
+      function BtnShare2() {
+        _super.call(this, PIXI.Texture.fromFrame("btn-share.png"));
+        this.position.set(730, 530);
+        this.visible = true;
+      }
+      Object.defineProperty(BtnShare2, "Instance", {
+        get: function () {
+
+          if (!BtnShare2._Instance) {
+            BtnShare2._Instance = new BtnShare2();
+          }
+          return BtnShare2._Instance;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      BtnShare2.prototype.fnActive = function () {
+        if (!this.interactive) {
+          this.buttonMode = this.interactive = true;
+          this.on("click", this.fnTap).on("tap", this.fnTap);
+        }
+      };
+      BtnShare2.prototype.fnTap = function () {
+        setShare(shareData);
+        vazee.share.Share.Instance.fnShow();
+      };
+      return BtnShare2;
+    })(PIXI.Sprite);
+    success.BtnShare2 = BtnShare2;
+  })(success = vazee.success || (vazee.success = {}));
+})(vazee || (vazee = {}));
+
+
+//购买按钮
+var vazee;
+(function (vazee) {
+  var success;
+  (function (success) {
+    "use strict";
+    var BtnBuy = (function (_super) {
+      __extends(BtnBuy, _super);
+      function BtnBuy() {
+        var _this = this;
+        _super.call(this, PIXI.Texture.fromFrame("btn-buy.png"));
+        this.position.set(470, 530);
+        this.visible = true;
+      }
+      Object.defineProperty(BtnBuy, "Instance", {
+        get: function () {
+          if (!BtnBuy._Instance) {
+            BtnBuy._Instance = new BtnBuy();
+          }
+          return BtnBuy._Instance;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      BtnBuy.prototype.fnActive = function () {
+        if (!this.interactive) {
+          this.buttonMode = this.interactive = true;
+          this.on("click", this.fnTap).on("tap", this.fnTap);
+        }
+      };
+      BtnBuy.prototype.fnTap = function () {
+        location.href = 'https://newbalance.tmall.com';
+      };
+      return BtnBuy;
+    })(PIXI.Sprite);
+    success.BtnBuy = BtnBuy;
+  })(success = vazee.success || (vazee.success = {}));
+})(vazee || (vazee = {}));
+
+//鞋子
+var vazee;
+(function (vazee) {
+  var success;
+  (function (success) {
+    "use strict";
+    var Shoe = (function (_super) {
+      __extends(Shoe, _super);
+      function Shoe() {
+        _super.call(this, PIXI.Texture.fromFrame("shoe.png"));
+        this.position.set(-70, 30);
+        this.visible = true;
+      }
+      Object.defineProperty(Shoe, "Instance", {
+        get: function () {
+          if (!Shoe._Instance) {
+            Shoe._Instance = new Shoe();
+          }
+          return Shoe._Instance;
+        },
+        enumerable: true,
+        configurable: true
+      });
+      return Shoe;
+    })(PIXI.Sprite);
+    success.Shoe = Shoe;
+  })(success = vazee.success || (vazee.success = {}));
+})(vazee || (vazee = {}));
+
 var vazee;
 (function (vazee) {
     var success;
@@ -2223,6 +2317,7 @@ var vazee;
                 this.addChild(success.TitleDefeat.Instance);
                 this.addChild(success.BtnNext.Instance);
                 this.addChild(success.BtnShare.Instance);
+
                 this.rotation = -11.4 * Math.PI / 180;
                 this.y = 140;
                 App.EventResize.on(function (aPortrait) {
@@ -2431,6 +2526,7 @@ var vazee;
         success.Score = Score;
     })(success = vazee.success || (vazee.success = {}));
 })(vazee || (vazee = {}));
+
 var vazee;
 (function (vazee) {
     var success;
@@ -2443,6 +2539,9 @@ var vazee;
                 this.y = 640;
                 this.addChild(success.Bg.Instance);
                 this.addChild(success.Content.Instance);
+                this.addChild(success.BtnShare2.Instance);
+                this.addChild(success.BtnBuy.Instance);
+                this.addChild(success.Shoe.Instance);
                 //this.addChild(success.Loader.Instance);
                 this.fnLoadAnim();
             }
@@ -2477,6 +2576,8 @@ var vazee;
                         });
                         success.BtnNext.Instance.fnActive();
                         success.BtnShare.Instance.fnActive();
+                        success.BtnShare2.Instance.fnActive();
+                        success.BtnBuy.Instance.fnActive();
                         if (!success.Loader.Instance.visible) {
                             setTimeout(function () {
                                 success.Ending.Instance.visible = true;
@@ -2827,108 +2928,4 @@ var vazee;
     vazee.GamingBg = GamingBg;
 })(vazee || (vazee = {}));
 
-//购买按钮
-var vazee;
-(function (vazee) {
-    "use strict";
-    var BtnBuy = (function (_super) {
-        __extends(BtnBuy, _super);
-        function BtnBuy() {
-            var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("btn-buy.png"));
-            this.position.set(500, 530);
-            this.visible = true;
-        }
-        Object.defineProperty(BtnBuy, "Instance", {
-            get: function () {
-                if (!BtnBuy._Instance) {
-                    BtnBuy._Instance = new BtnBuy();
-                }
-                return BtnBuy._Instance;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        BtnBuy.prototype.fnActive = function () {
-          if (!this.interactive) {
-            this.buttonMode = this.interactive = true;
-            this.on("click", this.fnTap).on("tap", this.fnTap);
-          }
-        };
-        BtnBuy.prototype.fnTap = function () {
-          location.href = 'https://newbalance.tmall.com';
-        };
-        return BtnBuy;
-    })(PIXI.Sprite);
-    vazee.BtnBuy = BtnBuy;
-})(vazee || (vazee = {}));
-
-//分享按钮
-var vazee;
-(function (vazee) {
-    "use strict";
-    var BtnShare = (function (_super) {
-        __extends(BtnShare, _super);
-        function BtnShare() {
-            var _this = this;
-            _super.call(this, PIXI.Texture.fromFrame("btn-share.png"));
-            this.position.set(750, 530);
-
-            this.visible = true;
-        }
-        Object.defineProperty(BtnShare, "Instance", {
-            get: function () {
-                if (!BtnShare._Instance) {
-                    BtnShare._Instance = new BtnShare();
-                }
-                return BtnShare._Instance;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        BtnShare.prototype.fnActive = function () {
-          if (!this.interactive) {
-            this.buttonMode = this.interactive = true;
-            this.on("click", this.fnTap).on("tap", this.fnTap);
-          }
-        };
-        BtnShare.prototype.fnTap = function () {
-          setShare(shareData);
-
-          vazee.share.Share.Instance.fnShow();
-          vazee.Shoe.Instance.visible = false;
-          vazee.BtnBuy.Instance.visible = false;
-          vazee.BtnShare.Instance.visible = false;
-        };
-        return BtnShare;
-    })(PIXI.Sprite);
-    vazee.BtnShare = BtnShare;
-})(vazee || (vazee = {}));
-
-//鞋子
-var vazee;
-(function (vazee) {
-  "use strict";
-  var Shoe = (function (_super) {
-    __extends(Shoe, _super);
-    function Shoe() {
-      var _this = this;
-      _super.call(this, PIXI.Texture.fromFrame("shoe.png"));
-      this.position.set(-50, 30);
-      this.visible = true;
-    }
-    Object.defineProperty(Shoe, "Instance", {
-      get: function () {
-        if (!Shoe._Instance) {
-          Shoe._Instance = new Shoe();
-        }
-        return Shoe._Instance;
-      },
-      enumerable: true,
-      configurable: true
-    });
-    return Shoe;
-  })(PIXI.Sprite);
-  vazee.Shoe = Shoe;
-})(vazee || (vazee = {}));
 //# sourceMappingURL=app.js.map
