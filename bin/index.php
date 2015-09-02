@@ -10,11 +10,11 @@ if (isset($_REQUEST["name"]) && isset($_REQUEST["level"]) && isset($_REQUEST["mu
 	$music = true;
 	$prevscore = 0;
 }
-
-include "WX.php";
-require_once "jssdk.php";
-$jssdk = new JSSDK(WX_APP_ID, WX_APP_SECRET);
-$signPackage = $jssdk->GetSignPackage();
+//
+//include "WX.php";
+//require_once "jssdk.php";
+//$jssdk = new JSSDK(WX_APP_ID, WX_APP_SECRET);
+//$signPackage = $jssdk->GetSignPackage();
 
 ?>
 
@@ -56,9 +56,9 @@ $signPackage = $jssdk->GetSignPackage();
 			<div class="right-part"></div>
 		</div>
 		<form class="user-info">
-			<p class="tip">请留下您的联系方式，我们会有专人尽快与您联系</p>
+			<p class="tip">请留下您的联系方式，我们会有专人尽快与您联系。库存有限，尺码以实际收到为准。</p>
             <input id="name" type="text" placeholder="姓名"/>
-            <input id="mobile" type="text" placeholder="电话"/>
+            <input id="mobile" type="text" placeholder="电话" style="width: 55%;margin-right: 0;"/>
 
 			<div class="btn btn-submit"></div>
 		</form>
@@ -73,20 +73,8 @@ $signPackage = $jssdk->GetSignPackage();
             </div>
         </div>
     </div>
-	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-    <script>
-        wx.config({
-          debug: false,
-          appId: '<?php echo $signPackage["appId"];?>',
-          timestamp: <?php echo $signPackage["timestamp"];?>,
-          nonceStr: '<?php echo $signPackage["nonceStr"];?>',
-          signature: '<?php echo $signPackage["signature"];?>',
-          jsApiList: [
-          'onMenuShareTimeline',
-          'onMenuShareAppMessage',
-          ]
-      });
-    </script>
+    <script src="lib/jweixin-1.0.0.js"></script>
+    <script src="lib/wxShare.js"></script>
 	<script src="lib.js?v1"></script>
 	<script src="app.js?v6"></script>
 	<script>
@@ -117,33 +105,31 @@ $signPackage = $jssdk->GetSignPackage();
 				  url: 'user_info.php',
 				  success: function(res){
 					  if(res.code == 200){
-						  if (alert('上传信息成功~')) {
-                              $(".fs-success").hide();
-                              $("#game").show();
-                              App.FnGameInit();
-                          };
+						  if (confirm('上传信息成功~是否再跑一次？')) {
+                location.reload();
+              };
 					  } else {
 						  alert(res.msg);
 					  }
 
 				  },
-                  error: function(jqXHR, exception) {
-                      if (jqXHR.status === 0) {
-                          alert('连接失败，请稍后重试~');
-                      } else if (jqXHR.status == 401) {
-                          alert('连接服务器需要权限~');
-                      } else if (jqXHR.status == 404) {
-                          alert('请求 url 无法找到。[404]');
-                      } else if (jqXHR.status >= 500 && jqXHR.status < 600) {
-                          alert('十分抱歉，服务器内部发生错误。' + jqXHR.status);
-                      } else if (exception === 'parsererror') {
-                          alert('JSON 解析失败！请尝试切换网络。');
-                      } else if (exception === 'timeout') {
-                          alert('连接超时，请稍后重试~');
-                      } else {
-                          alert('发现未知错误。(' + jqXHR.responseText + ', ' + exception + ')');
-                      }
-                  }
+          error: function(jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                alert('连接失败，请稍后重试~');
+            } else if (jqXHR.status == 401) {
+                alert('连接服务器需要权限~');
+            } else if (jqXHR.status == 404) {
+                alert('请求 url 无法找到。[404]');
+            } else if (jqXHR.status >= 500 && jqXHR.status < 600) {
+                alert('十分抱歉，服务器内部发生错误。' + jqXHR.status);
+            } else if (exception === 'parsererror') {
+                alert('JSON 解析失败！请尝试切换网络。');
+            } else if (exception === 'timeout') {
+                alert('连接超时，请稍后重试~');
+            } else {
+                alert('发现未知错误。(' + jqXHR.responseText + ', ' + exception + ')');
+            }
+          }
 			  });
 		  }
 	  });
@@ -164,6 +150,16 @@ $signPackage = $jssdk->GetSignPackage();
 	  }
 
       //分享
+      var platform = '';
+      var shareData;
+      var ua = navigator.userAgent.toLowerCase();
+      if (/micromessenger/i.test(ua)) {
+          platform = 'wx';
+      } else if (/(iphone|ipod|ipad)/i.test(ua)) {
+          platform = 'ios';
+      } else if (/(android)/i.test(ua)) {
+          platform = 'android';
+      }
       function connectWebViewJavascriptBridge (callback) {
           if (window.WebViewJavascriptBridge) {
               callback(WebViewJavascriptBridge)
@@ -174,14 +170,27 @@ $signPackage = $jssdk->GetSignPackage();
           }
       }
       function setShare (conf) {
-          if (android) {
+          if (platform == 'wx') {
+              WXSHARE.init(conf);
+          } else if(platform == 'android') {
+              conf = JSON.stringify(conf);
               return window.web && web.setWebViewShare(conf);
-          } else if (ios) {
+          } else if (platform == 'ios') {
+              conf = JSON.stringify(conf);
               connectWebViewJavascriptBridge(function (bridge) {
                   bridge.callHandler('setWebViewShare', conf, function() {});
               });
           }
       }
+
+      setShare({
+        'image_url':'http://115.159.67.149/ledongli-nb/bin/img/shareicon.jpg',
+        'link_url': location.href,
+        'title':'最任性的疾跑PK游戏',
+        'content':'NB无负提速，疾跑PK游戏',
+        'shared_to':'1'
+      })
+
 	</script>
 </body>
 </html>
